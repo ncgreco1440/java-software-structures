@@ -8,8 +8,39 @@ public class PostfixEvalTest {
   public void testPostFixEvalShouldEvaluate() {
     PostfixEval eval = new PostfixEval();
 
-    int res = eval.evaluate("3 5 5 * *");
+    double res = eval.evaluate("3 5 5 * *");
 
     assertEquals(res, 75d, 0d);
+  }
+
+  @Test
+  public void testInfixToPostfixTranslation() {
+    PostfixEval eval = new PostfixEval();
+    String result = "3 5 8 * +";
+
+    String postfixExpr = eval.translate("3 + 5 * 8");
+
+    assertEquals(postfixExpr, result);
+  }
+
+  @Test
+  public void testInfixToPostfixTranslationWithParenthesis() {
+    PostfixEval eval = new PostfixEval();
+    String result = "3 5 + 8 *";
+
+    String postfixExpr = eval.translate("(3+5)*8");
+
+    assertEquals(postfixExpr, result);
+  }
+
+  
+  @Test
+  public void testInfixToPostfixGeeksForGeeksExpression() {
+    PostfixEval eval = new PostfixEval();
+    String result = "a b c d ^ e - f g h * + ^ * + i -";
+
+    String postfixExpr = eval.translate("a + b * (c ^ d - e) ^ (f + g * h) - i");
+
+    assertEquals(postfixExpr, result);
   }
 }
