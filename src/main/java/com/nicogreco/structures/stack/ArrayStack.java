@@ -35,7 +35,10 @@ public class ArrayStack<T> implements StackADT<T> {
    */
   public T pop() {
     if (this.isEmpty()) return null;
-    return this.arr[--this.size];
+    --this.size;
+    T res = this.arr[this.size];
+    this.arr[this.size + 1] = null;
+    return res; 
   }
 
   /**
