@@ -32,7 +32,6 @@ public class PostfixEvalTest {
 
     assertEquals(postfixExpr, result);
   }
-
   
   @Test
   public void testInfixToPostfixGeeksForGeeksExpression() {
