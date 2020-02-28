@@ -42,4 +42,15 @@ public class PostfixEvalTest {
 
     assertEquals(postfixExpr, result);
   }
+
+  @Test
+  public void testInfixToPostfixEnd2End() {
+    PostfixEval eval = new PostfixEval();
+    String infix = "(3 * 4 - (2 + 5)) * 4 / 2";
+
+    String postfixExpr = eval.translate(infix);
+    double ans = eval.evaluate(postfixExpr);
+
+    assertEquals(ans, 10d, 0d);
+  }
 }
