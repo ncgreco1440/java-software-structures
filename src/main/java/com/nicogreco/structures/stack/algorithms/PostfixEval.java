@@ -17,6 +17,13 @@ public class PostfixEval {
     this.stack = new LinkedStack<>();
   }
 
+  /**
+   * Converts an infix expression to a postfix expression
+   */
+  public String translate(String infix) {
+    throw new UnsupportedOperationException();
+  }
+
   public int evaluate(String expression) {
     int opt1, opt2, result = 0;
     String token;
